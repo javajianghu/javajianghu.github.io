@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.4.min.js" ></script>
+		<script type="text/javascript" src="js/webtoolkit.base64.js" ></script>
+		<script type="text/javascript" src="js/md5.js" ></script>
+		<script type="text/javascript" src="js/formatjson.js" ></script>
+		<script>
+			function textDecode(){
+				$("#text").val(Base64.decode($("#text").val()));
+			}
+			function textEncode(){
+				$("#text").val(Base64.encode($("#text").val()));
+			}
+			function textMD5(){
+				$("#text").val(md5($("#text").val()));
+			}			
+			function formatJsonDo(){
+				$("#text").val(formatJson($("#text").val()));
+			}
+		</script>
+		<style>
+			body{
+				font-family: "微软雅黑";
+			}
+		</style>
+	</head>
+	<body>
+		<textarea id="text" rows="20" cols="100"></textarea>
+		<br/>
+		
+		<button id="decodeBtn" onclick="textEncode();">Base64加密</button><br><br>
+		<button id="decodeBtn" onclick="textDecode();">Base64解密</button><br><br>
+		<button id="decodeBtn" onclick="textMD5();">MD5加密</button><br><br>
+		<button id="decodeBtn" onclick="formatJsonDo();">JSON格式化</button><br><br>
+	</body>
+</html>
