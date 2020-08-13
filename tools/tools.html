@@ -20,6 +20,10 @@
 			function formatJsonDo(){
 				$("#text").val(formatJson($("#text").val()));
 			}
+			function textToImg(){
+				var img = "<img src=\"data:image/jpeg;base64,"+$("#text").val()+"\" />";
+				$("#tempDiv").append(img);
+			}
 		</script>
 		<style>
 			body{
@@ -31,9 +35,15 @@
 		<textarea id="text" rows="20" cols="100"></textarea>
 		<br/>
 		
-		<button id="decodeBtn" onclick="textEncode();">Base64加密</button><br><br>
-		<button id="decodeBtn" onclick="textDecode();">Base64解密</button><br><br>
-		<button id="decodeBtn" onclick="textMD5();">MD5加密</button><br><br>
-		<button id="decodeBtn" onclick="formatJsonDo();">JSON格式化</button><br><br>
+		<button  onclick="textEncode();">Base64加密</button><br><br>
+		<button  onclick="textDecode();">Base64解密</button><br><br>
+		<button  onclick="textMD5();">MD5加密</button><br><br>
+		<button  onclick="formatJsonDo();">JSON格式化</button><br><br>
+		<button  onclick="textToImg();">Base64图片展示</button><br><br>
+		
+		<div id="tempDiv">
+
+		</div>
+	
 	</body>
 </html>
