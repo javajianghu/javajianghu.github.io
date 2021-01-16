@@ -24,6 +24,26 @@
 				var img = "<img src=\"data:image/jpeg;base64,"+$("#text").val()+"\" />";
 				$("#tempDiv").append(img);
 			}
+			
+			function randomDoubleBalls(){
+				var baseRestUrl = "http://111.231.100.167:8888";
+				var doubleBallUrl = "/v1/tinyTools/doubleBall";
+				$.ajax({
+					type:"GET",
+					url: baseRestUrl + doubleBallUrl,
+					dataType: 'json',
+					error:function(jqXHR){
+						console.log("Error: "+jqXHR.status);
+					},
+					success: function(data){
+						if(data.code == 200){
+							$("#text").val(data.data);
+						}else{
+							alert(data.msg);
+						}
+					}
+				});
+			}
 		</script>
 		<style>
 			body{
@@ -40,6 +60,7 @@
 		<button  onclick="textMD5();">MD5加密</button><br><br>
 		<button  onclick="formatJsonDo();">JSON格式化</button><br><br>
 		<button  onclick="textToImg();">Base64图片展示</button><br><br>
+		<button  onclick="randomDoubleBalls();">随机一注双色球</button><br><br>
 		
 		<div id="tempDiv">
 
