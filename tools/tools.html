@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
-		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 		<script type="text/javascript" src="js/jquery-2.2.4.min.js" ></script>
 		<script type="text/javascript" src="js/webtoolkit.base64.js" ></script>
 		<script type="text/javascript" src="js/md5.js" ></script>
@@ -27,7 +26,7 @@
 			}
 			
 			function randomDoubleBalls(){
-				var baseRestUrl = "http://111.231.100.167:8888";
+				var baseRestUrl = "http://111.231.100.167";
 				var doubleBallUrl = "/v1/tinyTools/doubleBall";
 				$.ajax({
 					type:"GET",
