@@ -9,21 +9,17 @@
   <link rel="stylesheet" href="assets/css/vue.css">
 </head>
 <body>
-   <nav>
-      <a href="/">首页</a>
-      <a href="#/blog/">博客</a>
-   </nav>
    <div id="app"></div>
   
   <script>
     window.$docsify = {
 	  name: 'Java江湖侠客岛',
       repo: 'https://github.com/javajianghu',
-      coverpage: true // 封面
+      coverpage: true, // 封面
       loadNavbar: true,//导航栏
       loadSidebar: true,//目录栏
-      maxLevel: 2,
-      subMaxLevel: 2,
+      maxLevel: 1,
+      subMaxLevel: 1,
       // 全局搜索
       search: {
         paths: 'auto',
@@ -40,7 +36,7 @@
       },
       toc: {
 	    tocMaxLevel: 2,
-	    target: "h2, h3, h4, h5, h6",
+	    target: "h1,h2, h3, h4, h5, h6",
       },
    }
       
@@ -51,10 +47,10 @@
   <script src="assets/js/docsify-copy-code.js"></script>
   <script src="assets/js/prism-java.min.js"></script>
   <!-- 侧边栏目录折叠 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <!-- <script src="assets/js/docsify-sidebar-collapse.min.js"></script> -->
   <!-- 页面右侧 TOC -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.1.0/dist/docsify-plugin-toc.min.js"></script>
+  <script src="assets/js/docsify-plugin-toc.min.js"></script>
   <!-- emoji -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="assets/js/emoji.min.js"></script>
 </body>
 </html>
