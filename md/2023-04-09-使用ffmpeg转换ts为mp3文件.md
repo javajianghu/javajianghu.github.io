@@ -1,6 +1,6 @@
-# 使用ffmpeg转换ts文件为mp3
+# 1. 使用ffmpeg转换ts文件为mp3
 
-## 安装
+## 1.1. 安装
 
 首先下载安装包，下载地址如下：
 > <https://github.com/BtbN/FFmpeg-Builds/releases>
@@ -16,7 +16,7 @@
 ffmpeg version 2023-04-06-git-b564ad8eac-full_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers
 ```
 
-## 开始转换
+## 1.2. 开始转换
 
 假如源文件路径为：d:\\1.ts,目标mp3文件路径为：d:\\1.mp3,使用如下命令进行转换
 

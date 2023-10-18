@@ -1,9 +1,9 @@
-# 使用Docker方式部署Nacos
+# 1. 使用Docker方式部署Nacos
 
 nacos支持单机Derby模式，本文使用的是单机Mysql方式，就是使用外部mysql保存nacos相关数据。
 
-## Docker部署方式
-### 准备mysql数据库及sql
+## 1.1. Docker部署方式
+### 1.1.1. 准备mysql数据库及sql
 1. 到安装好的mysql数据库中，创建好nacos-mysql数据库。
    ```shell
    CREATE DATABASE `nacos-mysql` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_bin';
@@ -14,7 +14,7 @@ nacos支持单机Derby模式，本文使用的是单机Mysql方式，就是使�
    
 至此，基础数据准备完毕。
 
-### 执行docker run命令启动nacos容器
+### 1.1.2. 执行docker run命令启动nacos容器
 ```shell
 docker run -dit \
 --restart=always --network host \
@@ -52,7 +52,7 @@ MYSQL_SERVICE_PASSWORD=123456
 MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false
 ```
 
-## 验证
+## 1.2. 验证
 浏览器输入：
 http://x.x.x.x:28848/nacos     x.x.x.x 是部署nacos的那台服务器地址
 输入默认用户名、密码：nacos
