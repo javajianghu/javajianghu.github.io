@@ -11,6 +11,7 @@
     - [无界面树莓派配置wifi](/md/2022-12-14-无界面树莓派配置wifi.md)
     - [对比Mysql学习ES](/md/2023-02-06-对比Mysql学习ES.md) 
     - [使用ffmpeg转换ts为mp3文件](/md/2023-04-09-使用ffmpeg转换ts为mp3文件.md) 
+	- [docker-compose启动mysql时my.cnf配置不生效的问题](/md/2024-01-03-docker-compose启动mysql时my.cnf配置不生效的问题.md)
 
 - :octocat: 开源框架
     - tio
