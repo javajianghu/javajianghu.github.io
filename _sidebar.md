@@ -13,8 +13,7 @@
     - [使用ffmpeg转换ts为mp3文件](/md/2023-04-09-使用ffmpeg转换ts为mp3文件.md) 
 	- [docker-compose启动mysql时my.cnf配置不生效的问题](/md/2024-01-03-docker-compose启动mysql时my.cnf配置不生效的问题.md)
 	- [IDEA中@Value注解使用importClass提示没展示Spring的class](/md/2024-01-09-IDEA中@Value注解使用importClass提示没展示Spring的class)
-
+    - [kafka入门指南](/md/2024-03-15-kafka入门使用指南.md)
 - :octocat: 开源框架
     - tio
 		- [tio官方入门文档](/md/开源框架/tio官方入门文档.md)
-    

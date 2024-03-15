@@ -1,0 +1,20 @@
+# 应用服务 WEB 访问端口
+server.port: 8080
+
+spring:
+  kafka:
+    bootstrap-servers: 192.168.132.131:9092
+    producer:
+      acks: 1 # 0-不应答。1-leader 应答。all-所有 leader 和 follower 应答。
+      retries: 3 # 重试次数
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer # 消息的 value 的序列化
+    consumer:
+      auto-offset-reset: earliest # 设置消费者分组最初的消费进度为 earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer # 消息的 value 的反序列化
+      properties:
+        spring.json.trusted.packages: top.sintang.kafkademo.domain
+    listener:
+      # ack-mode: manual_immediate # 手动确认消息消费
+      missing-topics-fatal: false # 消费者组中不存在 topic 时是否报错
