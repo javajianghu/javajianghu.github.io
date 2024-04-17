@@ -1,4 +1,6 @@
 <!-- _sidebar.md -->
+
+- [:guide_dog: 文章导航](/_sidebar.md)
 - [:100: 首页](/README.md)
 
 - :writing_hand: 博客
