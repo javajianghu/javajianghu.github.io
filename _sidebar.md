@@ -9,6 +9,7 @@
 		- [第3期-你真的会问问题吗?](md/卖桃者说-极客时间/第3期-你真的会问问题吗.md)
     - Mysql
         - [Mysql使用docker-compose启动时my.cnf配置不生效的问题](/md/2024-01-03-docker-compose启动mysql时my.cnf配置不生效的问题.md)
+        - [Mysql容器启动内存异常占用的问题](/md/2024-05-24-Mysql容器启动内存异常占用的问题.md)
 	- Docker
         - [Docker部署Nacos服务](/md/2022-11-17-Docker部署Nacos服务.md)
     - ElasticSearch

@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="assets/css/vue.css">
 </head>
 <body>
-   <div id="app"></div>
-  
+   <div id="app">加载中...</div>
   <script>
     window.$docsify = {
 	  name: 'Java江湖侠客岛',
@@ -21,6 +20,7 @@
       loadSidebar: true,//目录栏
       maxLevel: 4,
       subMaxLevel: 2,
+      loadFooter: '_footer.md',
       // 全局搜索
       search: {
         paths: 'auto',
@@ -53,7 +53,7 @@
         previousText: '上一页',
         nextText: '下一页',
         crossChapter: true,
-        crossChapterText: true
+        crossChapterText: false
       },
       toc: {
 	    tocMaxLevel: 2,
@@ -79,5 +79,8 @@
   <script src="assets/js/countable.js"></script>
     <!-- 分页导航 -->
   <script src="assets/js/docsify-pagination.min.js"></script>
+   <!-- 页脚 -->
+  <script src="assets/js/docsify-footer.min.js"></script>
+
 </body>
 </html>
