@@ -1,1 +1,1 @@
-<img src="./md/assets/gxb.png" style="height: 14px;border-style: none;overflow-clip-margin: content-box;overflow: clip; "/>[京ICP备2024069517号](https://beian.miit.gov.cn/#/Integrated/index)  Copyright © 2024 Java江湖
+[京ICP备2024069517号](https://beian.miit.gov.cn/#/Integrated/index)  Copyright © 2024 Java江湖
