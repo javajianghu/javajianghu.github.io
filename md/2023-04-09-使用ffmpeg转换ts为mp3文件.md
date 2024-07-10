@@ -1,3 +1,9 @@
+---
+title: 使用ffmpeg转换ts文件为mp3
+categories:
+  - 工具
+---
+
 # 1. 使用ffmpeg转换ts文件为mp3
 
 ## 1.1. 安装

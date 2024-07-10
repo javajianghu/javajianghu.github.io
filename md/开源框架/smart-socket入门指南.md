@@ -1,3 +1,9 @@
+---
+title: smart-socket入门指南
+categories:
+  - 开源框架
+---
+
 # smart-socket入门指南
 
 官方地址：[smartboot 开源组织](https://smartboot.tech/)

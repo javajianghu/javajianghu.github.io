@@ -1,3 +1,9 @@
+---
+title: IDEA中@Value注解使用importClass提示没展示Spring的class
+categories:
+  - 工具
+---
+
 # IDEA中@Value注解使用importClass提示没展示Spring的class
 
 通俗点就是，使用了@Value注解，使用Alt+Enter获取import类时，列表没有显示Spring的@Value类。

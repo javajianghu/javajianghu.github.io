@@ -1,3 +1,7 @@
+---
+title: docker-compose启动mysql时my.cnf配置不生效的问题
+---
+
 # docker-compose启动mysql时my.cnf配置不生效的问题
 
 今天使用docker-compose 部署mysql的时候，发现配置了my.cnf中的端口为23306,但是mysql容器启动的时候还是3306端口启动。
