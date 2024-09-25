@@ -151,6 +151,20 @@ https://gitee.com/smartboot/smart-socket/tree/master/example
 
 本人根据example自己发挥了一下，有了此加强版，供君参考。
 
+### 依赖变化
+
+```
+### 引入依赖
+```xml
+<dependencies>
+    <dependency>
+		<groupId>org.smartboot.socket</groupId>
+		<artifactId>aio-pro</artifactId>
+		<version>1.5.43</version>
+	</dependency>
+</dependencies>
+```
+
 ### 通信协议
 
 没有变化，参考之前的。
@@ -323,12 +337,16 @@ public class SmartStringServer {
     public static void main(String[] args) throws IOException {
         MyServerMessageProcessor<String> messageProcessor = MyServerMessageProcessor.getInstance();
         // 服务器运行状态监控插件
-        messageProcessor.addMonitorPlugin(10);
-        // 黑名单插件
-        messageProcessor.addBlackListPlugin(new ArrayList<>());
+        messageProcessor.addPlugin(new MonitorPlugin());
+        // 增加黑名单
+//        BlackListPlugin<String> objectBlackListPlugin = new BlackListPlugin<>();
+//        objectBlackListPlugin.addRule((accept -> {
+//            return accept.getAddress().equals("127.0.0.1");
+//        }));
+//        msgProcessor.addPlugin(objectBlackListPlugin);
 
         // 码流监测插件 通信调试无需安装 wireshark，smart-socket 自带码流监控插件。
-        // messageProcessor.addPlugin(new StreamMonitorPlugin<>());
+        msgProcessor.addPlugin(new StreamMonitorPlugin<>());
 
         AioQuickServer aioQuickServer = new AioQuickServer(7890, new StringProtocol(), messageProcessor);
         aioQuickServer.start();
