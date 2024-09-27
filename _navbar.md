@@ -1,6 +1,6 @@
 <!-- _navbar.md -->
 
-* [:guide_dog: 文章导航](/_sidebar.md)
+* [文章导航](/README.md)
 
 * 友情链接
     * [MacTalk-池建强的随想录](https://macshuo.com/)
