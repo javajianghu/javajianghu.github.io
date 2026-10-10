@@ -18,6 +18,8 @@
         - [InfluxDB入门第一篇](/md/2022-11-16-InfluxDB入门第一篇.md)
         - [使用ffmpeg转换ts为mp3文件](/md/2023-04-09-使用ffmpeg转换ts为mp3文件.md)
         - [kafka入门指南](/md/2024-03-15-kafka入门使用指南.md)
+    - Spring Cloud Alibaba
+        - [Nacos使用避坑](/md/Spring-Cloud-Alibaba-Nacos使用避坑.md)
     - :octocat: 开源框架
         - tio
             - [tio官方入门文档](/md/开源框架/tio官方入门文档.md)
