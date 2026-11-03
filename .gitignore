@@ -1,0 +1,18 @@
+node_modules
+.DS_Store
+*.local
+
+# Vite 缓存
+.vite
+
+# 构建产物。若要把构建结果提交到 GitHub Pages，请改用「复制 dist/ 到 docs/」或
+# gh-pages 分支的方式；确实需要提交 dist 目录时，用 git add -f dist 强制添加。
+dist
+
+# 构建期由内容管线自动生成，无需纳入版本管理
+src/generated
+
+# 编辑器临时文件
+.idea
+.vscode/*
+!.vscode/extensions.json

@@ -1,0 +1,41 @@
+---
+title: "InfluxDB入门第一篇"
+date: 2022-11-16
+slug: influxdb-intro
+summary: "InfluxDB 1.8 的安装、启动与基础数据读写入门。"
+categories:
+  - 工具
+tags:
+  - InfluxDB
+  - 时序数据库
+---
+
+## 1.1. 安装
+```Plain Text
+wget https://dl.influxdata.com/influxdb/releases/influxdb-1.8.0.x86_64.rpm
+sudo yum localinstall influxdb-1.8.0.x86_64.rpm
+```
+## 1.2. 启动
+```Plain Text
+systemctl start influxd
+```
+## 1.3. 检查
+```Plain Text
+# 查看是否安装成功  
+influx -version
+```
+## 1.4. 创建数据库和用户（非必须）
+```Plain Text
+# 创建数据库，使用influx 命令进入到influxdb命令行
+influx
+create database telegraf;
+use telegraf;
+
+# 下面创建用户名telegraf 密码为telegraf的用户，注意用户名用双引号，密码用单引号
+create user "telegraf" with password 'telegraf';
+# 输入exit 退出influx命令行
+exit
+```
+## 1.5. 常用配置
+### 1.5.1. 配置文件位置
+> /etc/influxdb/influxdb.conf

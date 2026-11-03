@@ -1,0 +1,214 @@
+/* ---------- 写作页 Markdown 编辑器的暗色适配 ----------
+   @l9m/v-md-editor 只内置 github / vuepress 两套浅色主题，没有暗色版本，
+   暗色模式下必须手动覆盖它写死的浅色值。
+
+   规则统一挂在 html[data-theme='dark'] 下，原因有两个：
+   1. 提高选择器权重，压过第三方主题里权重相同、但写得更靠后的规则；
+   2. 只影响暗色主题，亮色下的外观保持第三方主题原样。
+
+   颜色一律取自 src/styles/tokens.css 中的设计令牌，不写死具体色值。 */
+
+/* ---------- 编辑面板与工具栏 ---------- */
+html[data-theme='dark'] .v-md-editor {
+  background-color: var(--bg-elevated);
+  color: var(--text);
+}
+
+html[data-theme='dark'] .v-md-editor__toolbar {
+  border-bottom-color: var(--border-soft);
+}
+
+html[data-theme='dark'] .v-md-editor__toolbar-item {
+  color: var(--text-soft);
+}
+
+html[data-theme='dark'] .v-md-editor__toolbar-item:hover,
+html[data-theme='dark'] .v-md-editor__toolbar-item--active,
+html[data-theme='dark'] .v-md-editor__toolbar-item--active:hover {
+  color: var(--text);
+  background-color: var(--bg-soft);
+}
+
+html[data-theme='dark'] .v-md-editor__toolbar-divider::before {
+  border-left-color: var(--border-soft);
+}
+
+/* ---------- 工具栏下拉菜单 ---------- */
+html[data-theme='dark'] .v-md-editor__menu {
+  background-color: var(--bg-elevated);
+}
+
+html[data-theme='dark'] .v-md-editor__menu-item {
+  color: var(--text-soft);
+}
+
+html[data-theme='dark'] .v-md-editor__menu-item:hover {
+  color: var(--text);
+  background-color: var(--bg-soft);
+}
+
+/* ---------- 输入区 ---------- */
+html[data-theme='dark'] .v-md-editor--editable .v-md-editor__editor-wrapper {
+  border-right-color: var(--border-soft);
+}
+
+html[data-theme='dark'] .v-md-textarea-editor pre,
+html[data-theme='dark'] .v-md-textarea-editor textarea {
+  color: var(--text);
+}
+
+html[data-theme='dark'] .v-md-textarea-editor textarea::placeholder {
+  color: var(--text-mute);
+}
+
+/* ---------- 预览区正文 ---------- */
+html[data-theme='dark'] .v-md-editor .github-markdown-body {
+  color: var(--text);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body a {
+  color: var(--accent);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body h1,
+html[data-theme='dark'] .v-md-editor .github-markdown-body h2 {
+  border-bottom-color: var(--border-soft);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body h6 {
+  color: var(--text-soft);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body blockquote {
+  color: var(--text-soft);
+  border-left-color: var(--border);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body hr {
+  background-color: var(--border-soft);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body kbd {
+  color: var(--text-soft);
+  background-color: var(--bg-soft);
+  border-color: var(--border);
+  box-shadow: inset 0 -1px 0 var(--border);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body table td,
+html[data-theme='dark'] .v-md-editor .github-markdown-body table th {
+  border-color: var(--border);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body table tr {
+  background-color: transparent;
+  border-top-color: var(--border);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body table tr:nth-child(2n) {
+  background-color: var(--bg-soft);
+}
+
+/* ---------- 代码块 ---------- */
+html[data-theme='dark'] .v-md-editor .github-markdown-body code,
+html[data-theme='dark'] .v-md-editor .github-markdown-body tt {
+  color: var(--text);
+  background-color: var(--bg-inline-code);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body pre,
+html[data-theme='dark'] .v-md-editor .github-markdown-body div[class*='v-md-pre-wrapper-'] {
+  background-color: var(--bg-code);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body pre code,
+html[data-theme='dark'] .v-md-editor .github-markdown-body pre tt {
+  color: var(--text);
+  background-color: transparent;
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode::after {
+  background-color: var(--bg-code);
+  border-right-color: var(--border);
+}
+
+html[data-theme='dark']
+  .v-md-editor
+  .github-markdown-body
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
+  .line-numbers-wrapper {
+  color: var(--text-mute);
+}
+
+/* ---------- 代码语法高亮 ----------
+   配色沿用 src/styles/highlight.css 的映射，第三方主题里的选择器权重更高，
+   无法直接复用站点规则，只能在这里按同样的映射重新声明一遍。 */
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs {
+  color: var(--text);
+  background-color: var(--bg-code);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-comment,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-quote {
+  color: var(--hl-comment);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-keyword,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-selector-tag,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-subst {
+  color: var(--hl-keyword);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-literal,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-number,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-template-variable,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-variable {
+  color: var(--hl-number);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-doctag,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-string {
+  color: var(--hl-string);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-section,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-selector-id,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-title {
+  color: var(--hl-function);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-class .hljs-title,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-type,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-built_in {
+  color: var(--hl-type);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-attribute,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-name,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-tag {
+  color: var(--hl-attr);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-link,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-regexp {
+  color: var(--hl-string);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-bullet,
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-symbol {
+  color: var(--hl-number);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-meta {
+  color: var(--hl-meta);
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-addition {
+  color: var(--hl-addition);
+  background-color: transparent;
+}
+
+html[data-theme='dark'] .v-md-editor .github-markdown-body .hljs-deletion {
+  color: var(--hl-deletion);
+  background-color: transparent;
+}

@@ -1,0 +1,103 @@
+/* 设计令牌：颜色、圆角、间距、字号统一在这里维护 */
+:root {
+  color-scheme: light;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+
+  --bg: #ffffff;
+  --bg-soft: #f6f8fa;
+  --bg-elevated: #ffffff;
+  --bg-code: #f6f8fa;
+  --bg-inline-code: rgba(129, 139, 152, 0.14);
+
+  --text: #1f2328;
+  --text-soft: #59636e;
+  --text-mute: #8b949e;
+
+  --border: #d1d9e0;
+  --border-soft: #e4e8ed;
+
+  --accent: #0969da;
+  --accent-hover: #0550ae;
+  --accent-soft: rgba(9, 105, 218, 0.1);
+
+  --success: #1a7f37;
+  --danger: #cf222e;
+
+  /* 代码高亮配色 */
+  --hl-comment: #6a737d;
+  --hl-keyword: #cf222e;
+  --hl-string: #0a3069;
+  --hl-number: #0550ae;
+  --hl-function: #8250df;
+  --hl-type: #953800;
+  --hl-variable: #953800;
+  --hl-meta: #0550ae;
+  --hl-tag: #116329;
+  --hl-attr: #0550ae;
+  --hl-title: #1f2328;
+  --hl-addition: #1a7f37;
+  --hl-deletion: #cf222e;
+
+  --shadow: 0 1px 3px rgba(31, 35, 40, 0.08);
+  --shadow-lg: 0 8px 24px rgba(31, 35, 40, 0.08);
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+
+  --content-width: 860px;
+  --wide-width: 1080px;
+  /* 文章页最大宽度，默认值与 site.config.ts 的 articleWidth 一致，运行时由 main.ts 覆盖 */
+  --article-width: 1180px;
+  /* 文章页右侧目录的宽度 */
+  --toc-width: 230px;
+  --header-height: 58px;
+
+  --transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0d1117;
+  --bg-soft: #161b22;
+  --bg-elevated: #161b22;
+  --bg-code: #161b22;
+  --bg-inline-code: rgba(110, 118, 129, 0.28);
+
+  --text: #e6edf3;
+  --text-soft: #9198a1;
+  --text-mute: #6e7681;
+
+  --border: #30363d;
+  --border-soft: #21262d;
+
+  --accent: #4493f8;
+  --accent-hover: #58a6ff;
+  --accent-soft: rgba(68, 147, 248, 0.15);
+
+  --success: #3fb950;
+  --danger: #f85149;
+
+  /* 代码高亮配色 */
+  --hl-comment: #8b949e;
+  --hl-keyword: #ff7b72;
+  --hl-string: #a5d6ff;
+  --hl-number: #79c0ff;
+  --hl-function: #d2a8ff;
+  --hl-type: #ffa657;
+  --hl-variable: #ffa657;
+  --hl-meta: #79c0ff;
+  --hl-tag: #7ee787;
+  --hl-attr: #79c0ff;
+  --hl-title: #e6edf3;
+  --hl-addition: #3fb950;
+  --hl-deletion: #f85149;
+
+  --shadow: 0 1px 3px rgba(1, 4, 9, 0.5);
+  --shadow-lg: 0 8px 24px rgba(1, 4, 9, 0.6);
+}
