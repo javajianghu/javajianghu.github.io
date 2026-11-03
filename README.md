@@ -124,7 +124,8 @@ GitHub Pages 判定为 404，该页面会记录原始路径并跳回首页，应
 发布步骤（不改动工作区，也不产生多余的本地提交）：
 
 ```bash
-# 首次发布前先拿到远端分支：git fetch origin gh-pages:gh-pages
+# 先同步远端分支，保证新提交是远端分支的子提交（否则推送会被判定为非快进）
+git fetch origin gh-pages:gh-pages
 npm run build
 
 # 用临时索引把产物组装成提交
