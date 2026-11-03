@@ -116,6 +116,36 @@ VITE_BASE=/<仓库名>/ npm run build
 构建产物已包含 `404.html`，用于 GitHub Pages 的深链接回退：直接访问 `/posts/xxx` 会被
 GitHub Pages 判定为 404，该页面会记录原始路径并跳回首页，应用启动后再把地址栏还原。
 
+### 当前线上发布方式
+
+线上站点 <https://javajianghu.top> 采用第二种做法：**`main` 分支只放源码，`gh-pages` 分支承载构建产物**，
+仓库的 Pages 发布来源设为 `gh-pages` 分支 / 根目录。
+
+发布步骤（不改动工作区，也不产生多余的本地提交）：
+
+```bash
+# 首次发布前先拿到远端分支：git fetch origin gh-pages:gh-pages
+npm run build
+
+# 用临时索引把产物组装成提交
+export GIT_INDEX_FILE="$(mktemp)"
+git read-tree --empty
+(
+  cd dist
+  find . -type f | sed 's|^\./||' | while IFS= read -r file; do
+    git update-index --add --cacheinfo "100644,$(git hash-object -w "$file"),$file"
+  done
+)
+# gh-pages 根目录需要 .nojekyll（跳过 Jekyll 处理）与 CNAME（绑定自定义域名）
+git update-index --add --cacheinfo "100644,$(git hash-object -w /dev/null),.nojekyll"
+git update-index --add --cacheinfo "100644,$(git hash-object -w CNAME),CNAME"
+commit="$(git commit-tree "$(git write-tree)" -p gh-pages -m "build: 发布站点构建产物")"
+unset GIT_INDEX_FILE
+git push origin "${commit}:gh-pages"
+```
+
+推送后 GitHub 会自动重新构建；若线上未更新，可在仓库 Settings → Pages 手动 Rebuild。
+
 ## 修改站点信息
 
 站点标题、副标题、作者、导航、社交链接、每页条数选项等都在 `site.config.ts` 里，改完重新构建即可。

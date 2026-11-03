@@ -43,6 +43,8 @@ npm test           # 单元测试
 - 文章页宽度由 `site.config.ts` 的 `articleWidth` 控制，运行时经 `src/main.ts` 注入 `--article-width`；不要在样式里硬编码文章页宽度
 - GitHub Pages 的深链接回退依赖 `plugins/spa-fallback.ts` 生成的 `404.html` 与
   `src/utils/redirect.ts` 的还原逻辑，两者**必须成对修改**
+- 线上站点由 `gh-pages` 分支发布，`main` 分支只放源码；发布流程见 README「当前线上发布方式」，
+  不要把 `dist/` 提交到 `main`
 - 文章页的「返回」按钮依赖 `src/utils/postOrigin.ts` 记录的来源列表页，
   路由守卫（`src/router/index.ts`）与文章页按钮**必须成对修改**
 - 编辑器的第三方包没有类型声明，类型补充在 `src/env.d.ts`，不要改成 `any` 绕过
