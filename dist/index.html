@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Java江湖侠客岛</title>
+    <meta name="description" content="记录后端、分布式与工具链实践的技术博客。" />
+    <meta name="keywords" content="Java,后端,分布式,中间件,Docker,MySQL,Kafka" />
+    <meta name="author" content="javajianghu" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Java江湖侠客岛" />
+    <meta property="og:description" content="记录后端、分布式与工具链实践的技术博客。" />
+    <script>
+      // 首屏渲染前应用主题，避免刷新时闪白
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+          var dark = stored === 'dark' || (stored !== 'light' && prefersDark)
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
+    <script type="module" crossorigin src="/assets/index-D3r96xN6.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DE1n7t5G.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

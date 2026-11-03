@@ -1,0 +1,1 @@
+import{B as e,C as t,b as n,f as r,h as i,m as a,nt as o,y as s}from"./index-D3r96xN6.js";n(),e();var c={class:`empty`},l={class:`empty__title`},u={key:0},d=s({__name:`EmptyState`,props:{title:{},description:{}},setup(e){return(n,s)=>(t(),i(`div`,c,[r(`p`,l,o(e.title??`这里还什么都没有`),1),e.description?(t(),i(`p`,u,o(e.description),1)):a(``,!0)]))}});export{d as t};
