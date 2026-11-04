@@ -22,6 +22,7 @@ npm run dev        # 本地开发
 npm run build      # 构建到 dist/
 npm run typecheck  # vue-tsc 类型检查
 npm test           # 单元测试
+npm run deploy     # 构建并发布到 for-pages 分支
 ```
 
 `typecheck` 与 `test` 前置了 `node build/cli.ts`，会先生成 `src/generated/` 产物。
@@ -34,6 +35,7 @@ npm test           # 单元测试
 - `slug` 只允许 ASCII 字母、数字、连字符、下划线；缺失时取文件名，非法会在构建期报错
 - 正文标题层级统一从 `h2` 开始（一级标题由页面标题承担），目录只收录 `h2` ~ `h4`
 - 图片放 `public/assets/`，正文用 `/assets/xxx.png` 引用；构建期会自动补部署子路径前缀
+- 独立的单文件工具页放 `public/`（如 `public/esp32.html`），构建时原样拷贝到产物根目录，不经过 Vue 应用与路由
 - `draft: true` 的文章不进入列表、归档与搜索
 
 ## 关键约束
@@ -43,8 +45,9 @@ npm test           # 单元测试
 - 文章页宽度由 `site.config.ts` 的 `articleWidth` 控制，运行时经 `src/main.ts` 注入 `--article-width`；不要在样式里硬编码文章页宽度
 - GitHub Pages 的深链接回退依赖 `plugins/spa-fallback.ts` 生成的 `404.html` 与
   `src/utils/redirect.ts` 的还原逻辑，两者**必须成对修改**
-- 线上站点由 `gh-pages` 分支发布，`main` 分支只放源码；发布流程见 README「当前线上发布方式」，
-  不要把 `dist/` 提交到 `main`
+- 线上站点由 `for-pages` 分支发布，`main` 分支只放源码；发布统一走根目录的 `deploy.sh`
+  （临时索引组装提交 + 快进推送），流程细节见 README「当前线上发布方式」
+- 发布分支内容固定为 `dist/` 全部产物 + `.nojekyll` + `CNAME`；产物中已删除的文件不会残留在发布分支
 - 文章页的「返回」按钮依赖 `src/utils/postOrigin.ts` 记录的来源列表页，
   路由守卫（`src/router/index.ts`）与文章页按钮**必须成对修改**
 - 编辑器的第三方包没有类型声明，类型补充在 `src/env.d.ts`，不要改成 `any` 绕过
@@ -58,6 +61,7 @@ npm test           # 单元测试
 | 构建期逻辑（`build/`、`plugins/`） | `npm test` + `npm run build` |
 | 前端组件 / 页面 | `npm run typecheck` + `npm run build` |
 | 纯样式 / 纯文档 | `npm run build`，无需跑测试 |
+| 静态资源 / 独立单页（`public/`） | `npm run build`，确认产物已原样拷贝 |
 
 交互验证（浏览器点击、表单填写）不在本项目的默认验证范围内；
 如确需人工冒烟，请显式说明未执行及原因。
