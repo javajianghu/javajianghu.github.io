@@ -1,6 +1,7 @@
 node_modules
 .DS_Store
 *.local
+/dist
 
 # Vite 缓存
 .vite
