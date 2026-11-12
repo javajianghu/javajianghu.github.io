@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import siteConfig from './site.config.ts'
 import { contentPlugin } from './plugins/content.ts'
 import { spaFallbackPlugin } from './plugins/spa-fallback.ts'
+import { toolsPlugin } from './plugins/tools.ts'
 
 const root = fileURLToPath(new URL('.', import.meta.url))
 
@@ -20,6 +21,7 @@ export default defineConfig({
   plugins: [
     vue(),
     contentPlugin({ root, base, site: siteConfig }),
+    toolsPlugin({ root }),
     spaFallbackPlugin({ base }),
   ],
   resolve: {

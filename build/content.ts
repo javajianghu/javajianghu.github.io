@@ -10,6 +10,7 @@ import {
 import { basename, extname, join, relative } from 'node:path'
 import { countWords, estimateReadingTime, toDateString, truncate } from '../src/utils/text.ts'
 import { renderMarkdown } from './markdown.ts'
+import { scanTools } from './tools.ts'
 import type {
   NameCount,
   PageMeta,
@@ -208,6 +209,8 @@ export function buildSiteContent(root: string, base = '/'): SiteContent {
 
   const loadedPosts = postFiles.map((file) => loadPost(file))
   const loadedPages = pageFiles.map((file) => loadPage(file))
+  // 工具页是独立单文件页面，不走 Markdown 管线，只收集清单元信息
+  const tools = scanTools(root)
 
   // 同一天发布的文章按 slug 排序，保证构建结果稳定
   loadedPosts.sort((a, b) =>
@@ -269,6 +272,7 @@ export function buildSiteContent(root: string, base = '/'): SiteContent {
     index: {
       posts,
       pages,
+      tools,
       tags: countBy(published.flatMap((post) => post.tags)),
       categories: countBy(published.flatMap((post) => post.categories)),
       years,

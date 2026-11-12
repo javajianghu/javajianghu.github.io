@@ -10,6 +10,7 @@
 - 归档：按年份归档，显示每年篇数，年份页内分页，最新的在上面
 - 标签 / 分类：标签墙与分类墙，点击进入对应的文章列表
 - 搜索：全文检索标题、标签、分类、摘要与正文
+- 工具箱：收录 `tools/` 下的独立单页工具，点击在新标签页打开
 - 关于我：内容来自 `content/pages/about.md`
 - 在线写作：内置 Markdown 编辑器（分屏预览），可导出 `.md` 文件
 
@@ -71,15 +72,18 @@ myBlog/
 │   ├── posts/                # 文章，文件名即 slug
 │   └── pages/                # 独立页面，如 about.md
 ├── public/                   # 静态资源，原样拷贝到产物
-│   ├── assets/               # 图片等
-│   └── esp32.html            # ESP32 固件管理工具（独立单页，产物为 /esp32.html）
+│   └── assets/               # 图片等
+├── tools/                    # 独立单页工具，产物为站点根路径下的 /xxx.html
+│   └── esp32.html            # ESP32 固件管理工具（/esp32.html）
 ├── build/                    # 构建期脚本（Node 运行，不进浏览器包）
 │   ├── content.ts            # 读取内容、解析 frontmatter、生成索引
 │   ├── markdown.ts           # markdown-it 渲染、目录抽取
+│   ├── tools.ts              # 扫描 tools，生成工具清单
 │   └── cli.ts                # 命令行入口
 ├── plugins/                  # Vite 插件
 │   ├── content.ts            # 内容构建 + 开发态监听
-│   └── spa-fallback.ts       # 生成 404.html 深链接回退页
+│   ├── spa-fallback.ts       # 生成 404.html 深链接回退页
+│   └── tools.ts              # 把工具页输出到站点根路径
 ├── scripts/
 │   └── migrate-legacy.mjs    # 旧 docsify 博客的一次性迁移脚本
 ├── src/                      # 前端应用

@@ -35,7 +35,9 @@ npm run deploy     # 构建并发布到 for-pages 分支
 - `slug` 只允许 ASCII 字母、数字、连字符、下划线；缺失时取文件名，非法会在构建期报错
 - 正文标题层级统一从 `h2` 开始（一级标题由页面标题承担），目录只收录 `h2` ~ `h4`
 - 图片放 `public/assets/`，正文用 `/assets/xxx.png` 引用；构建期会自动补部署子路径前缀
-- 独立的单文件工具页放 `public/`（如 `public/esp32.html`），构建时原样拷贝到产物根目录，不经过 Vue 应用与路由
+- 独立的单文件工具页放项目根目录的 `tools/`（如 `tools/esp32.html`），构建时由 `plugins/tools.ts` 原样输出到站点根路径
+  （`/esp32.html`），不经过 Vue 应用与路由；构建期会扫描该目录，把 `<title>` 与 `<meta name="description">` 汇总到站点索引，
+  由「工具」页统一展示
 - `draft: true` 的文章不进入列表、归档与搜索
 
 ## 关键约束

@@ -13,6 +13,7 @@ const router = createRouter({
     { path: '/categories', name: 'categories', component: () => import('@/pages/CategoriesPage.vue') },
     { path: '/categories/:category', name: 'category', component: () => import('@/pages/CategoryPage.vue') },
     { path: '/search', name: 'search', component: () => import('@/pages/SearchPage.vue') },
+    { path: '/tools', name: 'tools', component: () => import('@/pages/ToolsPage.vue') },
     { path: '/about', name: 'about', component: () => import('@/pages/AboutPage.vue') },
     { path: '/editor', name: 'editor', component: () => import('@/pages/EditorPage.vue') },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/pages/NotFoundPage.vue') },

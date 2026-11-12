@@ -468,6 +468,52 @@ a.chip:hover {
   color: var(--accent);
 }
 
+/* ---------- 工具箱 ---------- */
+.tool-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  color: inherit;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.tool-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  color: inherit;
+  transform: translateY(-1px);
+}
+
+.tool-card__title {
+  font-size: 15.5px;
+  font-weight: 640;
+}
+
+.tool-card__description {
+  color: var(--text-soft);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.tool-card__path {
+  color: var(--text-mute);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
 /* ---------- 分页 ---------- */
 .pagination {
   display: flex;

@@ -1,1 +1,0 @@
-function e(e){let t=e.match(/^(\d{4})-(\d{2})-(\d{2})$/);return t?`${t[1]} 年 ${Number(t[2])} 月 ${Number(t[3])} 日`:e}export{e as t};

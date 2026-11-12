@@ -63,6 +63,16 @@ export interface PageMeta {
   toc: TocItem[]
 }
 
+/** 工具页元信息（tools 目录下的独立单文件页面） */
+export interface ToolMeta {
+  /** 站点根路径下的文件名，如 esp32.html */
+  path: string
+  /** 工具名称，取自 HTML 的 <title> */
+  title: string
+  /** 工具简介，取自 <meta name="description"> */
+  description: string
+}
+
 /** 名称 + 数量的统计项，用于标签墙、分类页 */
 export interface NameCount {
   name: string
@@ -79,6 +89,7 @@ export interface YearCount {
 export interface SiteIndex {
   posts: PostMeta[]
   pages: PageMeta[]
+  tools: ToolMeta[]
   tags: NameCount[]
   categories: NameCount[]
   years: YearCount[]

@@ -1,6 +1,7 @@
 import { join } from 'node:path'
 import type { Plugin } from 'vite'
 import { buildSiteContent, writeGenerated } from '../build/content.ts'
+import { TOOLS_DIR } from '../build/tools.ts'
 import type { SiteConfig } from '../src/types/content.ts'
 
 export interface ContentPluginOptions {
@@ -43,10 +44,12 @@ export function contentPlugin(options: ContentPluginOptions): Plugin {
     },
 
     configureServer(server) {
-      server.watcher.add(contentDir)
+      // 工具页放在 public/tools 下，增删工具时同样需要重建索引
+      const toolsDir = join(options.root, TOOLS_DIR)
+      server.watcher.add([contentDir, toolsDir])
 
       const onChange = (file: string): void => {
-        if (!file.startsWith(contentDir)) return
+        if (!file.startsWith(contentDir) && !file.startsWith(toolsDir)) return
         rebuild()
       }
 
